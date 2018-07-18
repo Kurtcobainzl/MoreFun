@@ -12,12 +12,16 @@ import com.google.gson.Gson;
  * 邮箱：876506231@qq.com
  */
 public class GsonUtils {
-    private static class GsonHolder {
-        public static final Gson instance = new Gson();
-    }
+    public static  Gson instance;
 
     public static Gson getInstance() {
-        return GsonHolder.instance;
+        if (instance==null){
+            synchronized (GsonUtils.class){
+                if (instance==null)
+                    instance=new Gson();
+            }
+        }
+    return instance;
     }
 
 }

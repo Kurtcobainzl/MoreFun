@@ -1,12 +1,12 @@
-package yeelion.bf.com.baselibrary.imageload;
+package yeelion.bf.com.baselibrary.imageloader;
 
 import android.content.Context;
 import android.widget.ImageView;
 
-import yeelion.bf.com.baselibrary.imageload.listener.ImageBitmapListener;
-import yeelion.bf.com.baselibrary.imageload.listener.ImageSaveListener;
-import yeelion.bf.com.baselibrary.imageload.listener.ProgressLoadListener;
-import yeelion.bf.com.baselibrary.imageload.listener.SourceReadyListener;
+import yeelion.bf.com.baselibrary.imageloader.listener.ImageBitmapListener;
+import yeelion.bf.com.baselibrary.imageloader.listener.ImageSaveListener;
+import yeelion.bf.com.baselibrary.imageloader.listener.ProgressLoadListener;
+import yeelion.bf.com.baselibrary.imageloader.listener.SourceReadyListener;
 
 /**
  * 作者：Kurt on 2018/7/4 14:43
