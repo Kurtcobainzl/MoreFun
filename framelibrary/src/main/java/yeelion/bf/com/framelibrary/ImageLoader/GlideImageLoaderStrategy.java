@@ -11,11 +11,11 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 
-import yeelion.bf.com.baselibrary.imageload.BaseImageLoaderStrategy;
-import yeelion.bf.com.baselibrary.imageload.listener.ImageBitmapListener;
-import yeelion.bf.com.baselibrary.imageload.listener.ImageSaveListener;
-import yeelion.bf.com.baselibrary.imageload.listener.ProgressLoadListener;
-import yeelion.bf.com.baselibrary.imageload.listener.SourceReadyListener;
+import yeelion.bf.com.baselibrary.imageloader.BaseImageLoaderStrategy;
+import yeelion.bf.com.baselibrary.imageloader.listener.ImageBitmapListener;
+import yeelion.bf.com.baselibrary.imageloader.listener.ImageSaveListener;
+import yeelion.bf.com.baselibrary.imageloader.listener.ProgressLoadListener;
+import yeelion.bf.com.baselibrary.imageloader.listener.SourceReadyListener;
 
 /**
  * 作者：Kurt on 2018/7/4 15:04
