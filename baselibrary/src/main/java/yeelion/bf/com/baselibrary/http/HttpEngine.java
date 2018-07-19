@@ -5,5 +5,5 @@ package yeelion.bf.com.baselibrary.http;
  * 邮箱：876506231@qq.com
  */
 public interface HttpEngine {
-    public <T extends Object> void startLoad(HttpConfig httpConfig, HttpCallBack<T> httpCallBack);
+     <T extends Object> void startLoad(HttpConfig httpConfig, HttpCallBack<T> httpCallBack);
 }

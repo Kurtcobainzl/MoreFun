@@ -9,10 +9,12 @@
 <com.github.lzyzsd.jsbridge.BridgeWebView
     android:id="@+id/web"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"></com.github.lzyzsd.jsbridge.BridgeWebView>
+    android:layout_height="10dp"></com.github.lzyzsd.jsbridge.BridgeWebView>
 
 
     <ImageView
+        android:id="@+id/iv"
+        android:background="#aa0000"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>
