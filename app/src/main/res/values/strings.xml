@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">MoreFun</string>
+
+
+
+
+    <string name="perimission_call_phone_open_notice_str">通话权限被关闭，请开启权限后操作</string>
+    <string name="perimission_fine_location_open_notice_str">位置权限被关闭，请开启权限后操作</string>
+    <string name="perimission_network_location_open_notice_str">网络位置权限被关闭，请开启权限后操作</string>
+    <string name="perimission_camera_open_notice_str">摄像头权限被关闭，请开启权限后操作</string>
+    <string name="perimission_sms_read_write_open_notice_str">收取/读写短信权限被关闭，请开启权限后操作</string>
+    <string name="perimission_sdcard_read_open_notice_str">SD卡阅读权限被关闭，请开启权限后操作</string>
+    <string name="perimission_sdcard_write_open_notice_str">SD卡写入权限被关闭，请开启权限后操作</string>
+    <string name="perimission_read_phone_status_open_notice_str">读取手机状态权限被关闭，请开启权限后操作</string>
+    <string name="notice_str">提示</string>
+    <string name="cancle_str">取消</string>
+    <string name="go_to_settings_str">去设置</string>
+
 </resources>
