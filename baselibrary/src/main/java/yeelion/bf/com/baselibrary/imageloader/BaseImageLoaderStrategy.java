@@ -10,12 +10,7 @@ import yeelion.bf.com.baselibrary.imageloader.listener.ProgressLoadListener;
 import yeelion.bf.com.baselibrary.imageloader.listener.SourceReadyListener;
 
 
-/**
- * Created by sushuai on 2016/10/11.
- * Class Note:
- * abstract class/interface defined to load image
- * (Strategy Pattern used here)
- */
+
 public interface BaseImageLoaderStrategy {
     //无占位图
     void loadImage(String url, ImageView imageView);
