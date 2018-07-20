@@ -6,8 +6,10 @@ import android.os.Message;
 import android.support.annotation.BinderThread;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
@@ -24,6 +26,7 @@ import yeelion.bf.com.baselibrary.handler.IHandlerMessage;
 import yeelion.bf.com.baselibrary.http.HttpCallBack;
 import yeelion.bf.com.baselibrary.http.HttpConfig;
 import yeelion.bf.com.baselibrary.http.HttpHelper;
+import yeelion.bf.com.baselibrary.utils.ToastUtil;
 import yeelion.bf.com.framelibrary.http.OKHttpEngine;
 
 public class MainActivity extends BaseViewActivity implements IHandlerMessage {
@@ -96,7 +99,9 @@ public class MainActivity extends BaseViewActivity implements IHandlerMessage {
         findViewById(R.id.iv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(Main2Activity.class);
+                ToastUtil.showToastCenter(MainActivity.this,"捐献");
+//                startActivity(Main2Activity.class);
+
             }
         });
     }
