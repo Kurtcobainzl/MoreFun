@@ -1,5 +1,6 @@
 package com.more.fun;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Message;
@@ -19,6 +20,10 @@ import com.bumptech.glide.request.target.Target;
 import com.github.lzyzsd.jsbridge.BridgeWebView;
 import com.more.fun.bean.TestBean;
 
+import java.security.PublicKey;
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.Bind;
 import yeelion.bf.com.baselibrary.baseui.BaseViewActivity;
 import yeelion.bf.com.baselibrary.handler.CommonHandler;
@@ -26,9 +31,13 @@ import yeelion.bf.com.baselibrary.handler.IHandlerMessage;
 import yeelion.bf.com.baselibrary.http.HttpCallBack;
 import yeelion.bf.com.baselibrary.http.HttpConfig;
 import yeelion.bf.com.baselibrary.http.HttpHelper;
+import yeelion.bf.com.baselibrary.log.Logger;
 import yeelion.bf.com.baselibrary.utils.ToastUtil;
 import yeelion.bf.com.framelibrary.http.OKHttpEngine;
 
+/**
+ * test
+ */
 public class MainActivity extends BaseViewActivity implements IHandlerMessage {
 
     @Bind(R.id.web)
@@ -37,7 +46,6 @@ public class MainActivity extends BaseViewActivity implements IHandlerMessage {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        HttpConfig.initEngine(new OKHttpEngine());
         HttpHelper.with(this).url("http://app.baicm.com.cn/app/check_update")
                 .putParam("platform", "android")
                 .putParam("timestamp", "1530602208604")
@@ -54,6 +62,8 @@ public class MainActivity extends BaseViewActivity implements IHandlerMessage {
             @Override
             public void onFail(String str) {
                 super.onFail(str);
+                Log.e("OKHttpEngine", "onFail:" + str.toString());
+
             }
         });
 
@@ -99,8 +109,8 @@ public class MainActivity extends BaseViewActivity implements IHandlerMessage {
         findViewById(R.id.iv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtil.showToastCenter(MainActivity.this,"捐献");
-//                startActivity(Main2Activity.class);
+                ToastUtil.showToastCenter(MainActivity.this, "捐献");
+                startActivity(Main2Activity.class);
 
             }
         });
@@ -112,25 +122,46 @@ public class MainActivity extends BaseViewActivity implements IHandlerMessage {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+//        commonHandler.sendEmptyMessageDelayed(0, 1000);
+
+    }
+
+    @Override
     public void handlerCallback(Message msg) {
-        switch (msg.what % 5) {
-            case 0:
-                setMode();
-                break;
-            case 1:
-                setLeftTitleMode();
-                break;
-            case 2:
-                setLeftTitleRightMode();
-                break;
-            case 3:
-                setTitleRightMode();
-                break;
-            case 4:
-                setSingleTitleMode();
-                break;
-        }
+        Logger.e("NIRVANA", "main1--->" + msg.what);
+//        startActivity(Main2Activity.class);
+
+//        switch (msg.what % 5) {
+//            case 0:
+//                setMode();
+//                break;
+//            case 1:
+//                setLeftTitleMode();
+//                break;
+//            case 2:
+//                setLeftTitleRightMode();
+//                break;
+//            case 3:
+//                setTitleRightMode();
+//                break;
+//            case 4:
+//                setSingleTitleMode();
+//                break;
+//        }
 //        i++;
 //        commonHandler.sendEmptyMessageDelayed(i, 3000);
+    }
+
+//    private static List<Context> mlist=new ArrayList<>();
+
+    /**
+     * 1212121
+     * @param context
+     */
+    public static void getCCC(Context context){
+//        mlist.add(context);
+
     }
 }

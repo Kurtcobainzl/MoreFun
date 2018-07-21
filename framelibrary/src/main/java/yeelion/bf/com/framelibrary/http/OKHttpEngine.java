@@ -1,5 +1,7 @@
 package yeelion.bf.com.framelibrary.http;
 
+import android.content.Context;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -15,6 +17,8 @@ import yeelion.bf.com.baselibrary.http.HttpConfig;
 import yeelion.bf.com.baselibrary.http.HttpEngine;
 import yeelion.bf.com.baselibrary.log.Logger;
 import yeelion.bf.com.baselibrary.utils.GsonUtils;
+import yeelion.bf.com.baselibrary.utils.NetworkUtil;
+import yeelion.bf.com.framelibrary.R;
 
 /**
  * 作者：Kurt on 2018/7/3 14:02
@@ -47,7 +51,7 @@ public class OKHttpEngine implements HttpEngine {
 
     private <T> void get(OkHttpClient client, HttpConfig httpConfig, final HttpCallBack<T> callBack) {
         Request request = new Request.Builder().headers(OkEngineUtils.getHeaders(httpConfig.getHeaderParams())).url(OkEngineUtils.getUrlWithParams(httpConfig.getmUrl(), httpConfig.getParams())).get().build();
-        clientCall(client, request, callBack);
+        clientCall(httpConfig.getContext(),client, request, callBack);
 
     }
 
@@ -56,7 +60,7 @@ public class OKHttpEngine implements HttpEngine {
         FormBody.Builder builder = OkEngineUtils.getFormBodyBuilder(httpConfig.getParams());
         RequestBody formBody = builder.build();
         Request request = new Request.Builder().headers(OkEngineUtils.getHeaders(httpConfig.getHeaderParams())).url(httpConfig.getmUrl()).post(formBody).build();
-        clientCall(client, request, callBack);
+        clientCall(httpConfig.getContext(),client, request, callBack);
     }
 
     private <T> void put(OkHttpClient client, HttpConfig httpConfig, HttpCallBack<T> callBack) {
@@ -76,8 +80,16 @@ public class OKHttpEngine implements HttpEngine {
      * @param callBack
      * @param <T>
      */
-    private <T> void clientCall(OkHttpClient client, Request request, final HttpCallBack<T> callBack) {
+    private <T> void clientCall(Context context,OkHttpClient client, Request request, final HttpCallBack<T> callBack) {
         callBack.onStart();
+        //检查网络
+        if (!NetworkUtil.getInstance(context.getApplicationContext()).isNetworkOK()) {
+            callBack.onFail(context.getResources().getString(R.string.network_error));
+            callBack.onFinish();
+            return;
+        }
+
+
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -99,5 +111,7 @@ public class OKHttpEngine implements HttpEngine {
                 }
             }
         });
+
+
     }
 }

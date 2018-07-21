@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--配置信息-->
     <bool name="log_able">true</bool>
+
 
 </resources>
